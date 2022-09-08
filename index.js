@@ -18,7 +18,7 @@ app.use("/static", express.static("public"));
 // UrlEncoded extracts data from forms and adds it to the URL
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to the database
+// Connect to the database using the URL stored in the DB_CONNECT env variable (in .env)
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
   console.log("Connected to db!");
   // Host the app on port 3000
