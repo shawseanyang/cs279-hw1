@@ -12,4 +12,6 @@ const todoTaskSchema = new mongoose.Schema({
     default: Date.now
   }
 })
+
+// Export the model so that it's accessible by index.js
 module.exports = mongoose.model('TodoTask', todoTaskSchema)

@@ -16,15 +16,19 @@ integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7
 <button type="submit"><span class="fas fa-plus"></span></button>
 </form>
 <ul class="todo-list">
+<!-- todoTasks is provided on render-time by ExpressJS as a list of todos that are deconstructed here and populated into the appropriate HTML -->
 <% todoTasks.forEach(details => { %>
+<!-- but if this task is the task currently being editted, show the editting interface for it instead of the standard interface for tasks -->
 <% if (details._id == idTask) { %>
 <li class="todo-list-item">
+<!-- the interface is actually a form -->
 <form action="/edit/<%= details._id %>" method="POST">
 <input type="text" value="<%= details.content %>" name="content">
 <button type="submit">Confirm</button>
 <a href="/" class="cancel">Cancel</a>
 </form>
 </li>
+<!-- otherwise for the other todo tasks, simply render them as normal -->
 <% } else { %>
 <li class="todo-list-item">
 <div class="todo-list-item-name"><%= details.content %></div>

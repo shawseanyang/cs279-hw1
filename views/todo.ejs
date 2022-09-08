@@ -16,6 +16,7 @@ integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7
 <button type="submit"><span class="fas fa-plus"></span></button>
 </form>
 <ul class="todo-list">
+<!-- todoTasks is provided on render-time by ExpressJS as a list of todos that are deconstructed here and populated into the appropriate HTML -->
 <% todoTasks.forEach(details => { %>
 <li class="todo-list-item">
 <div class="todo-list-item-name"><%= details.content %></div>
